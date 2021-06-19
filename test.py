@@ -1,10 +1,18 @@
+#import dependanceis
+
 import discord
+
+#define variables
 
 client = discord.Client()
 
+
+#print login message
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}' .format(client))
+
+#commands
 
 @client.event
 async def on_message(message):
@@ -30,5 +38,7 @@ async def on_message(message):
         if message.content.startswith('Nou'):
             await message.channel.send('no u')
             print('Sent "No U Message')
+
+#run client
             
 client.run('ODU1OTE5OTkwMjA5NTExNDQ0.YM5fmw.9tONWdIdcg_g7XgnNZyFjrSw2No')
