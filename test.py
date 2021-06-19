@@ -5,13 +5,15 @@ import discord
 #define variables
 
 client = discord.Client()
+game = discord.Game("with nutz")
 
 
-#print login message
+#print login message and set presence
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}' .format(client))
-
+    await client.change_presence(status=discord.Status.idle, activity=game)
+    print('Set Own Rich Presence')
 #commands
 
 @client.event
@@ -41,4 +43,4 @@ async def on_message(message):
 
 #run client
             
-client.run('ODU1OTE5OTkwMjA5NTExNDQ0.YM5fmw.9tONWdIdcg_g7XgnNZyFjrSw2No')
+client.run('ODU1OTE5OTkwMjA5NTExNDQ0.YM5fmw.sC-5T8IcoTsnJIbb1SeW9xB_Ar4')
