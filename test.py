@@ -1,12 +1,14 @@
 #import dependanceis
 
 import discord
-
+from discord.ext.commands import Bot
+from discord import Member
 #define variables
 
 client = discord.Client()
 game = discord.Game("with nutz")
-
+bot = Bot('!')
+membergame = None
 
 #print login message and set presence
 @client.event
@@ -14,6 +16,8 @@ async def on_ready():
     print('We have logged in as {0.user}' .format(client))
     await client.change_presence(status=discord.Status.idle, activity=game)
     print('Set Own Rich Presence')
+    
+    
 #commands
 
 @client.event
@@ -24,23 +28,16 @@ async def on_message(message):
         if message.content.startswith('$hello'):
             await message.channel.send('Hello!')
             print('Sent Hello Message')
-            
-        if message.content.startswith('no u'):
-            await message.channel.send('no u')
-            print('Sent "No U Message')
-            
-        if message.content.startswith('nou'):
-            await message.channel.send('no u')
-            print('Sent "No U Message')
 
-        if message.content.startswith('No u'):
-            await message.channel.send('no u')
-            print('Sent "No U Message')
-            
-        if message.content.startswith('Nou'):
-            await message.channel.send('no u')
-            print('Sent "No U Message')
 
+#query member status
+for activity in member.activities:
+    if isinstance(activity, discord.Game):
+        game = activity
+        
+if game is None:
+    return await ctx.send("Not playing any Games")
+    
 #run client
             
-client.run('DU1OTE5OTkwMjA5NTExNDQ0.YM5fmw.sC-5T8IcoTsnJIbb1SeW9xB_Ar4')
+client.run('ODU1OTE5OTkwMjA5NTExNDQ0.YM5fmw.bDqgfAecYfgYqzyvtYa7IKiixtA')
